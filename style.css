@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&family=Quicksand:wght@300..700&display=swap');
+
+:root {
+    --background-start-rgb: 26, 26, 26;
+    --background-rgb: 6, 6, 6;
+    --foreground-rgb: 255, 255, 255;
+    --background: rgb(var(--background-rgb));
+    --foreground: rgb(var(--foreground-rgb));
+    --primary-rgb: 255, 139, 174;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Quicksand", "Noto Sans Thai", sans-serif;
+    transition: .24s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+body {
+    background: linear-gradient(
+        180deg,
+        rgb(var(--background-start-rgb)),
+        rgb(var(--background-rgb))
+    );
+    padding: 0;
+    margin: 0;
+    color: var(--foreground);
+    min-height: 100vh;
+}
+
+main {
+    min-height: 100vh;
+    padding: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+div.watermarks {
+    position: fixed;
+    left: 2.4rem;
+    bottom: 2.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+}
+
+a.watermark,
+span.watermark {
+    font-size: 10px;
+    font-weight: 100;
+    opacity: .12;
+    color: rgb(var(--foreground-rgb));
+    text-decoration: none;
+}
+
+button {
+    padding: .96rem 1.64rem;
+    background-color: rgb(var(--primary-rgb));
+    color: #fff;
+    font-weight: 600;
+    border: 0;
+    border-radius: 24rem;
+}
+
+button.hover-effect {
+    box-shadow: 0px 0px 12px 0px rgb(var(--primary-rgb), 0);
+}
+button.hover-effect:hover {
+    box-shadow: 0px 0px 32px 12px rgb(var(--primary-rgb), .24);
+}
+button.hover-effect:active {
+    box-shadow: 0px 0px 16px 6px rgb(var(--primary-rgb), .24);
+}
+
+button.active-border-effect {
+    border: 2px solid rgb(var(--primary-rgb));
+    background-color: rgb(var(--primary-rgb));
+    color: #fff;
+}
+button.active-border-effect:active {
+    background-color: rgb(var(--primary-rgb), .64);
+}
+
+a.watermark:hover {
+    opacity: .24;
+    text-decoration: underline;
+}
+
+a:active,
+button:active {
+    transform: scale(0.98);
+    transition-duration: .06s;
+    filter: opacity(.64);
+}
